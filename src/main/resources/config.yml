@@ -1,0 +1,32 @@
+# MinecraftOnlineAuthenticator 1.0 by NotReference.
+# Plugin configuration.
+#
+# NOTES: If you wanna use this plugin for make spigot premium players auto login, download now PremiumLogin from SpigotMC!
+# https://www.spigotmc.org/resources/premiumlogin.76336/
+#
+#
+# Do we need to setup cracked uuids to premium uuids when using online mode?
+setup-uuids: true
+#
+# Do we need to force online mode for all players?
+force-online-mode: false
+#
+# Should we protect all opped players?
+auto-protect-op-players: false
+#
+# Do we need to log actions to staff players?
+staff-log: true
+#
+# Do we need to log sp connections?
+log-sp-connection-too: false
+#
+# Do we need to log all kick messages?
+kick-log: true
+#
+# List of protected players that have to join with Minecraft.net
+protected-players:
+- NotReference
+
+
+
+

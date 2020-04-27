@@ -1,0 +1,12 @@
+name: MinecraftOnlineAuthenticator
+main: it.notreference.minecraftauth.MinecraftOnlineAuthenticator
+author: NotReference
+softdepend: [ProtocolLib]
+version: 1.0
+commands:
+  minecraftonlineauthenticator:
+    description: Main command.
+  minecraftauth:
+    description: Alias of main command.
+  mcauth:
+    description: Another alias.
