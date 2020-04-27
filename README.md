@@ -48,7 +48,7 @@ Our api events are very simple to use.
 Current API Version: b1.0
 
 #### Example Code to use the api:
-```
+```java
 
 import it.notreference.minecraftauth.events.MinecraftPlayerJoinEvent;
 import it.notreference.minecraftauth.protocol.MinecraftOnlineRequest;
@@ -90,5 +90,5 @@ public boolean isLoggedInOnlineMode(String playerName) {
 return MinecraftOnlineAuthenticator.get().isPremiumConnected(playerName);
 
 }
-
+```
 
