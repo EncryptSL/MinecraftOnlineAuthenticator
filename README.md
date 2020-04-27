@@ -40,11 +40,11 @@ ProtocolLib - https://www.spigotmc.org/resources/protocollib.1997/
 
 (It generates a random token for the player and store it into a list, if the received verify token in the packet is not = to the stored token, the player will be kicked)
 
-## API
+### API
 Our api events are very simple to use.
 Current API Version: b1.0
 
-### Example Code to set online mode:
+#### Example Code to use the api:
 ```
 
 import it.notreference.minecraftauth.events.MinecraftPlayerJoinEvent;
