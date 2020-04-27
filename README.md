@@ -20,23 +20,23 @@ ProtocolLib - https://www.spigotmc.org/resources/protocollib.1997/
 
 # Features
 
--> Allows Premium Players to perform online mode connections and switch to premium UUID.
+Allows Premium Players to perform online mode connections and switch to premium UUID.
 
--> Skin auto apply.
+Skin auto apply.
 
--> Allows Premium Players to being protected from cracked players:
+Allows Premium Players to being protected from cracked players:
 
    Example:
    If Pippo is premium and is protected, he can join the server only if logged in
    trough the premium launcher. Else will be kicked.
    
--> No BungeeCord! This plugin if a plugin for spigot without bungeecord only. (If you have bungeecord is only useful when maintenance / new server)    
+No BungeeCord! This plugin if a plugin for spigot without bungeecord only. (If you have bungeecord is only useful when maintenance / new server)    
 
--> Staff Log (Can be set to false in the configuration)
+Staff Log (Can be set to false in the configuration)
 
--> Async Events & Verification Task - No lag. All verify events are async. So, don't worry about server lag.
+Async Events & Verification Task - No lag. All verify events are async. So, don't worry about server lag.
 
--> Security. This plugin prevents other plugin from sending fake packets and spoof a fake verify token. It only accept server plugin api call / join call. 
+Security. This plugin prevents other plugin from sending fake packets and spoof a fake verify token. It only accept server plugin api call / join call. 
 
 (It generates a random token for the player and store it into a list, if the received verify token in the packet is not = to the stored token, the player will be kicked)
 
