@@ -2,7 +2,10 @@
 Allows spigot offline mode servers to make online Minecraft.net authentication (so allow online mode for premium players)
 
 ## Dependencies
-ProtocolLib - https://www.spigotmc.org/resources/protocollib.1997/
+* [ProtocolLib](https://www.spigotmc.org/resources/protocollib.1997/)
+
+## Works With
+* Coming Soon: [PremiumLogin](https://www.spigotmc.org/resources/premiumlogin.76336/)
 
 ## Commands
 * /minecraftauth fakepacket (player) - This will send a fake OnlineModeRequest [EncryptionBegin] Packet. (player crash)
