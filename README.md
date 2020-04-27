@@ -6,11 +6,17 @@ ProtocolLib - https://www.spigotmc.org/resources/protocollib.1997/
 
 # Commands
 /minecraftauth fakepacket (player) - This will send a fake OnlineModeRequest [EncryptionBegin] Packet. (player crash)
+
 /minecraftauth authenticate (username) (password) - This will provide the access token and the profile data of the specifed account (if correct credentials).
+
 /minecraftauth getpremiumlist - Shows the currently premium players logged in using MCOnlineAuthenticatorOnlineMode.
+
 /minecraftauth getuuid (player) - Shows the player currently UUID.
+
 /minecraftauth protect (player) - Protects/Unprotects a player. (Protection  = Blocks the player to join without the verified online mode)"
+
 /minecraftauth reload - Reloads the configuration.
+
 
 # Features
 
