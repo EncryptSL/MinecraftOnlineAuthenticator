@@ -83,14 +83,6 @@ public class OnlineProtocolListener extends PacketAdapter  {
 
         MinecraftPlayerJoinEvent join = new MinecraftPlayerJoinEvent(new MinecraftOnlineRequest(secureRandom, packetEvent, player, keyPair.getPublic(), userName), player, userName);
         main.callEvent(join);
-
-        if(join.isCancelled()) {
-            try {
-                join.getRequest().kickPlayer(join.getKickMsg());
-            } catch(Exception exc) {
-
-            }
-        }
     }
 
     /**

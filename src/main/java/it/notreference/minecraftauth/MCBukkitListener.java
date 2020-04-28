@@ -28,6 +28,16 @@ public class MCBukkitListener implements Listener {
     @EventHandler
     public void onJoin(MinecraftPlayerJoinEvent event) {
 
+        if(event.isCancelled()) {
+            return;
+        }
+
+       if(MinecraftOnlineAuthenticator.get().getServer().getPluginManager().isPluginEnabled("PremiumLoginSpigot")) {
+
+           return;
+
+       }
+
         if(MinecraftOnlineAuthenticator.get().getConfiguration().getBoolean("force-online-mode")) {
             MinecraftOnlineRequest requestPacket = event.getRequest();
             try {

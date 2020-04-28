@@ -36,6 +36,7 @@ public class MinecraftOnlineRequest {
     private final Random random;
     private final PacketEvent packetEvent;
     private final Player player;
+    private boolean alreadyOnline;
     private boolean onlineModeCanSet = true;
     private final PublicKey key;
     private String playerName;
@@ -46,6 +47,7 @@ public class MinecraftOnlineRequest {
         this.player = player;
         this.key = key;
         this.playerName = playerName;
+        alreadyOnline = false;
     }
 
     /**
@@ -108,6 +110,10 @@ public class MinecraftOnlineRequest {
 
         }
 
+        if(alreadyOnline) {
+            return;
+        }
+
         token = MinecraftEncryptionUtils.generateToken(random);
         MinecraftOnlineAuthenticator.get().getIncomingConnections().removeAll(MinecraftOnlineAuthenticator.get().getPlayerName(player.getAddress().getAddress().getHostAddress()));
         MinecraftOnlineAuthenticator.get().removePlayer(playerName);
@@ -119,6 +125,7 @@ public class MinecraftOnlineRequest {
         onlineModeRequestPacket.getSpecificModifier(PublicKey.class).write(0, key);
         onlineModeRequestPacket.getByteArrays().write(0,  token);
         ProtocolLibrary.getProtocolManager().sendServerPacket(player, onlineModeRequestPacket);
+        alreadyOnline = true;
 
     }
 
@@ -148,6 +155,15 @@ public class MinecraftOnlineRequest {
      *
      */
     public void allowSPConnection() {
+
+        if(alreadyOnline) {
+            return;
+        }
+
+        if(!onlineModeCanSet) {
+            return;
+        }
+
         try {
             start(playerName);
         } catch(Exception exc) {

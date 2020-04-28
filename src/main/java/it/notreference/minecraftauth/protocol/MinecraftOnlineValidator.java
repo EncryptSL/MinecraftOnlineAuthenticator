@@ -1,6 +1,7 @@
 package it.notreference.minecraftauth.protocol;
 
 import com.comphenix.protocol.ProtocolLibrary;
+import com.comphenix.protocol.ProtocolManager;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.events.PacketEvent;
 import com.comphenix.protocol.injector.server.TemporaryPlayerFactory;
@@ -12,6 +13,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import it.notreference.minecraftauth.MinecraftOnlineAuthenticator;
 import it.notreference.minecraftauth.auth.MinecraftEncryptionUtils;
+import it.notreference.minecraftauth.events.MinecraftOnlineModeSetEvent;
 import it.notreference.minecraftauth.events.MinecraftPremiumFailEvent;
 import it.notreference.minecraftauth.protocol.hasjoined.HasjoinedAPI;
 import org.bukkit.entity.Player;
@@ -33,7 +35,7 @@ import java.util.UUID;
  * MinecraftOnlineAuthenticator by NotReference
  *
  * @author NotReference
- * @version 1.0
+ * @version 1.1
  * @destination Spigot
  *
  */
@@ -85,6 +87,9 @@ public class MinecraftOnlineValidator {
         } finally {
 
             //
+            synchronized(this) {
+                packetEvent.setCancelled(true);
+            }
 
         }
 
@@ -278,6 +283,27 @@ public class MinecraftOnlineValidator {
     }
 
     private void start(String playerName) {
+
+
+        try {
+
+            main.callEvent(new MinecraftOnlineModeSetEvent(playerName, player.getAddress().getAddress().getHostAddress()));
+
+        } catch(Exception exc) {
+
+            try {
+
+                main.callEvent(new MinecraftOnlineModeSetEvent(playerName, player.getAddress().getAddress().getHostAddress()));
+
+
+            } catch(Exception exc2) {
+
+
+
+            }
+
+        }
+
         PacketContainer start = new PacketContainer(START);
         WrappedGameProfile fakeProfile = new WrappedGameProfile(UUID.randomUUID(), playerName);
         start.getGameProfiles().write(0, fakeProfile);
