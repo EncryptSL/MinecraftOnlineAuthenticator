@@ -12,6 +12,7 @@ public class MinecraftOnlineModeSetEvent extends Event {
     private static HandlerList list = new HandlerList();
 
     public MinecraftOnlineModeSetEvent(String playerName, String playerIP) {
+        super(true);
         this.playerName = playerName;
         this.playerIP = playerIP;
     }

@@ -31,6 +31,7 @@ public class MinecraftPlayerJoinEvent extends Event implements Cancellable {
     private boolean cancel = false;
 
     public MinecraftPlayerJoinEvent(MinecraftOnlineRequest request, Player player, String name) {
+        super(true);
         this.request = request;
         this.player = player;
         this.name = name;

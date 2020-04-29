@@ -30,6 +30,7 @@ public class MinecraftPremiumFailEvent extends Event {
      * @param reason
      */
     public MinecraftPremiumFailEvent(Player p, String pName, String serverHash, String reason) {
+        super(true);
         this.p = p;
         this.pName = pName;
         this.serverHash = serverHash;
